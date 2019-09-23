@@ -10,7 +10,29 @@ class ButtonList extends Component {
 		]
 	};
 
+	componentDidMount(){
+		var temp = 0;
+
+		//fetches hard coded array from server.js
+		//express test
+		//hardcoded array is ["one","two"]
+		fetch('/test')
+			.then(res => res.json())
+			.then(texts => {const temp = [...this.state.buttons]
+
+							//replaces text of buttons with text from hard coded array
+							for(var i = 0; i < this.state.buttons.length; i++){
+								temp[i].btnTxt = texts[i];
+							}
+							this.setState(this.state.buttons = temp);
+			});
+
+		console.log(temp);
+
+	}
+
 	changeText = (id, e) => {
+		//in react, we cant change the variables
 		const temp = [...this.state.buttons]
 		const index = temp.indexOf( id)
 

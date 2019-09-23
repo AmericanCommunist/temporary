@@ -1,0 +1,26 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "backend",
+  "main": "server.js",
+  "scripts": {
+
+    //start and run the server
+    "start": "node server.js",
+    "server": "nodemon server.js",
+
+    //start and run the frontend
+    "client": "cd .. && npm start",
+
+    //start and run both frontend and backend
+    "dev": "concurrently \"npm run server \" \"npm run client\" "
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.19.2"
+  },
+  "dependencies": {
+    "concurrently": "^4.1.2"
+  }
+}

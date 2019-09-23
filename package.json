@@ -2,7 +2,12 @@
   "name": "frank",
   "version": "0.1.0",
   "private": true,
+
+  //any fetch with one backslash will look from this url
+  "proxy": "http://localhost:3030",
   "dependencies": {
+    "concurrently": "^4.1.2",
+    "express": "^4.17.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1"
