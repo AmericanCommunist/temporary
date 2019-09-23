@@ -4,15 +4,9 @@
   "description": "backend",
   "main": "server.js",
   "scripts": {
-
-    //start and run the server
     "start": "node server.js",
     "server": "nodemon server.js",
-
-    //start and run the frontend
     "client": "cd .. && npm start",
-
-    //start and run both frontend and backend
     "dev": "concurrently \"npm run server \" \"npm run client\" "
   },
   "author": "",
