@@ -58,11 +58,13 @@ class ButtonList extends Component {
 
 		this.setState(this.state.buttons = temp);
 
-		var writeUrl = '/write='.concat(temp[index].btnTxt);
+		var writeUrl = '/write=' + (index+1).toString() + '-' + temp[index].btnTxt;
 
 		fetch(writeUrl);
 
+		console.log('Index:'.concat(index.toString()));
 		console.log(temp[index].input);
+		console.log(writeUrl);
 	}
 	render(){
 

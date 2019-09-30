@@ -22,13 +22,14 @@ client.connect(err => {
 });
 console.log("connected");
 
-app.get('/write=:text', function(req,res) {
+app.get('/write=:index-:text', function(req,res) {
 	console.log("write happened");
-	console.log(req.params.text);
+	var objectId = "TestString".concat(req.params.index);
+	var text= req.params.text;
 	const client = new MongoClient(uri, { useNewUrlParser: true });
     client.connect(err => {
 	  const collection = client.db("test").collection("devices");
-	  collection.findOneAndUpdate( {"_id": "TestString1"},{$set: {"text": req.params.text} } );
+	  collection.findOneAndUpdate( {"_id": objectId} , {$set: {"text": text} } );
 	  client.close();
 	});
 	res.json(req.params);
