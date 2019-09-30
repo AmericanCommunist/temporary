@@ -13,7 +13,7 @@ app.get('/test', function(req,res) {
 });
 
 const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://<username>:<password>@cluster0-5ecpi.mongodb.net/test?retryWrites=true&w=majority";
+const uri = "mongodb+srv://username:password@cluster0-5ecpi.mongodb.net/test?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true });
 client.connect(err => {
   const collection = client.db("test").collection("devices");
@@ -28,7 +28,7 @@ app.get('/write=:text', function(req,res) {
 	const client = new MongoClient(uri, { useNewUrlParser: true });
     client.connect(err => {
 	  const collection = client.db("test").collection("devices");
-	  collection.insert( {"text": req.params.text} );
+	  collection.findOneAndUpdate( {"_id": "TestString1"},{$set: {"text": req.params.text} } );
 	  client.close();
 	});
 	res.json(req.params);
