@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ColorButton from './button.js';
 
+
 class ButtonList extends Component {
 
 	state = {
@@ -11,6 +12,8 @@ class ButtonList extends Component {
 	};
 
 	componentDidMount(){
+
+
 		var temp = 0;
 
 		//fetches hard coded array from server.js
@@ -54,6 +57,10 @@ class ButtonList extends Component {
 		temp[index].btnTxt = temp[index].input;
 
 		this.setState(this.state.buttons = temp);
+
+		var writeUrl = '/write='.concat(temp[index].btnTxt);
+
+		fetch(writeUrl);
 
 		console.log(temp[index].input);
 	}
