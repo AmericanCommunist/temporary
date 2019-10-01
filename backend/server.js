@@ -12,15 +12,25 @@ app.get('/test', function(req,res) {
 	res.json(temp);
 });
 
+//basic vars needed for mongodb connection
 const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://username:password@cluster0-5ecpi.mongodb.net/test?retryWrites=true&w=majority";
+const uri = "mongodb+srv://zeyuanjiang:hihihihi1@cluster0-5ecpi.mongodb.net/test?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true });
+
+//initalize the connection
 client.connect(err => {
   const collection = client.db("test").collection("devices");
-  client.close();
+  const changeStream =collection.watch();
+  changeStream.on('change', next => {
+  	console.log('asdsa');
+  });
+  //client.close();
   // perform actions on the collection object
 });
 console.log("connected");
+
+
+
 
 app.get('/write=:index-:text', function(req,res) {
 	console.log("write happened");
