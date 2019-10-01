@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ColorButton from './button.js';
-import TxtField from './TxtField.js';
+import TxtField from './txtField.js';
 
 
 class ButtonList extends Component {
